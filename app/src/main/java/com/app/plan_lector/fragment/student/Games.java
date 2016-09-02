@@ -1,4 +1,4 @@
-package com.app.plan_lector.fragment;
+package com.app.plan_lector.fragment.student;
 
 import android.app.Activity;
 import android.os.Bundle;

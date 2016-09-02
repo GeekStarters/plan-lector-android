@@ -1,4 +1,4 @@
-package com.app.plan_lector.fragment;
+package com.app.plan_lector.fragment.student;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,13 +12,13 @@ import com.app.plan_lector.R;
 /**
  * Created by Gabriela Mejia on 30/10/2016.
  */
-public class MyAccount extends Fragment implements View.OnClickListener {
+public class Report extends Fragment implements View.OnClickListener {
     Activity context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.account, container, false);
+        return inflater.inflate(R.layout.report, container, false);
     }
 
     @Override

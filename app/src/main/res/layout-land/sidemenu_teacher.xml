@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/games"
+        android:id="@+id/student_book"
         android:background="@drawable/border_one_line_bottom">
         <TextView
             android:layout_width="match_parent"
@@ -67,7 +67,7 @@
             android:scaleType="centerCrop"
             android:layout_gravity="center_vertical"
             android:textAppearance="?android:textAppearanceLarge"
-            android:text="Juegos"
+            android:text="Libros Estudiantes"
             android:padding="10dp"
             android:gravity="left|fill_vertical"
             android:textSize="15sp"
@@ -112,7 +112,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/report"
+        android:id="@+id/progress"
         android:background="@drawable/border_one_line_bottom">
         <TextView
             android:layout_width="match_parent"
@@ -121,7 +121,7 @@
             android:scaleType="centerCrop"
             android:layout_gravity="center_vertical"
             android:textAppearance="?android:textAppearanceLarge"
-            android:text="Cartilla"
+            android:text="Avance Alumnado"
             android:padding="10dp"
             android:gravity="left|fill_vertical"
             android:textSize="15sp"
@@ -162,7 +162,37 @@
             android:paddingTop="10dp"
             android:paddingRight="15dp"/>
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/logout"
+            android:background="@drawable/border_one_line_bottom">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:text="Cerrar Sesión"
+                android:padding="10dp"
+                android:gravity="left|fill_vertical"
+                android:textSize="15sp"
+                android:layout_weight="0.40"
+                android:layout_marginBottom="1dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flecha"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp"
+                android:paddingRight="15dp"/>
+        </LinearLayout>
 
 
-</LinearLayout>
+
+
+
+    </LinearLayout>
 </ScrollView>

@@ -1,6 +1,7 @@
 package com.app.plan_lector.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -14,23 +15,22 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.fragment.Biblioteca;
-import com.app.plan_lector.fragment.Games;
-import com.app.plan_lector.fragment.MyAccount;
-import com.app.plan_lector.fragment.Rank;
-import com.app.plan_lector.fragment.Report;
-import com.avast.android.dialogs.fragment.ListDialogFragment;
-import com.avast.android.dialogs.iface.IListDialogListener;
+import com.app.plan_lector.fragment.student.BookList;
+import com.app.plan_lector.fragment.student.Games;
+import com.app.plan_lector.fragment.student.Library;
+import com.app.plan_lector.fragment.student.MyAccountStudent;
+import com.app.plan_lector.fragment.student.Rank;
+import com.app.plan_lector.fragment.student.Report;
 import com.navdrawer.SimpleSideDrawer;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivityStudent extends AppCompatActivity implements View.OnClickListener{
 
 	private SimpleSideDrawer mNav;
-	private LinearLayout books,report,games,rank, account;
+	private LinearLayout books,report,games,rank, account,  logout;
 	private TextView logo;
+    private ImageView home;
 	private Activity context;
 
 
@@ -65,14 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	private void init() {
 		mNav = new SimpleSideDrawer(this);
-		mNav.setLeftBehindContentView(R.layout.activity_behind_left_simple);
-
+		mNav.setLeftBehindContentView(R.layout.sidemenu_student);
+        home = (ImageView)mNav.findViewById(R.id.logo);
 		books = (LinearLayout)mNav.findViewById(R.id.books);
 		games = (LinearLayout)mNav.findViewById(R.id.games);
 		rank = (LinearLayout)mNav.findViewById(R.id.rank);
 		report = (LinearLayout)mNav.findViewById(R.id.report);
         account = (LinearLayout)mNav.findViewById(R.id.account);
-		report.setOnClickListener(this);
+		logout = (LinearLayout)mNav.findViewById(R.id.logout);
+		logout.setOnClickListener(this);
+        home.setOnClickListener(this);
+        report.setOnClickListener(this);
 		games.setOnClickListener(this);
 		rank.setOnClickListener(this);
 		books.setOnClickListener(this);
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private void selectItem(int position){
 		switch (position){
 			case 1:
-				Biblioteca biblio = new Biblioteca();
+				Library biblio = new Library();
 				Bundle bu = new Bundle();
 				biblio.setArguments(bu);
 				FragmentManager fragmentManager = getSupportFragmentManager();
@@ -126,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				logo.setText("Cartilla");
 				break;
 			case 5:
-				MyAccount cuenta = new MyAccount();
+				MyAccountStudent cuenta = new MyAccountStudent();
                 Bundle bundle = new Bundle();
                 cuenta.setArguments(bundle);
 				FragmentManager fragmentManager5 = getSupportFragmentManager();
@@ -136,6 +139,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 						.commit();
 				logo.setText("Mi Perfil");
 				break;
+            case 6:
+                BookList libro = new BookList();
+                Bundle b = new Bundle();
+                libro.setArguments(b);
+                FragmentManager fragmentManager6 = getSupportFragmentManager();
+                fragmentManager6
+                        .beginTransaction()
+                        .replace(R.id.main_content, libro)
+                        .commit();
+                logo.setText("Mi Biblioteca");
+                break;
 		}
 
 	}
@@ -163,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				mNav.toggleLeftDrawer();
 				break;
 			case R.id.books:
-				selectItem(1);
+				selectItem(6);
 				mNav.toggleLeftDrawer();
 				break;
 			case R.id.rank:
@@ -178,6 +192,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selectItem(5);
                 mNav.toggleLeftDrawer();
                 break;
+            case R.id.logo:
+                selectItem(1);
+                mNav.toggleLeftDrawer();
+                break;
+			case R.id.logout:
+				mNav.toggleLeftDrawer();
+				startActivity(new Intent(MainActivityStudent.this,Login.class));
+				break;
 		}
 	}
 

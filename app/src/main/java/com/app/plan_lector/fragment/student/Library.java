@@ -1,4 +1,4 @@
-package com.app.plan_lector.fragment;
+package com.app.plan_lector.fragment.student;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import com.avast.android.dialogs.iface.IListDialogListener;
 /**
  * Created by Gabriela Mejia on 29/10/2016.
  */
-public class Biblioteca extends Fragment implements View.OnClickListener, IListDialogListener {
+public class Library extends Fragment implements View.OnClickListener, IListDialogListener {
     Activity context;
     private ImageView image1, image2, image3, image4, image5;
     private static final int BOOK = 74295;
@@ -27,7 +27,7 @@ public class Biblioteca extends Fragment implements View.OnClickListener, IListD
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.biblioteca, container, false);
+        return inflater.inflate(R.layout.library, container, false);
     }
 
     @Override

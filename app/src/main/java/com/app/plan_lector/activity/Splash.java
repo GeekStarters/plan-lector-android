@@ -64,7 +64,7 @@ public class Splash extends Activity {
 
         @Override
         protected void onPostExecute(Boolean result) {
-            i=new Intent(Splash.this, MainActivity.class);
+            i=new Intent(Splash.this, Login.class);
             startActivity(i);
             finish();
         }
