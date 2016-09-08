@@ -47,26 +47,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void validarSesion(String s, String s1) {
-
          if(s.equals("student")){
              i=new Intent(Login.this,MainActivityStudent.class);
-             startActivity(i);
-             finish();
          }else{
              if(s.equals("teacher")){
                  i=new Intent(Login.this,MainActivityTeacher.class);
-                 startActivity(i);
-                 finish();
              }else{
                  if(s.equals("parent")){
-                     //Cambiar a Parent
-                     i=new Intent(Login.this,MainActivityTeacher.class);
-                     startActivity(i);
-                     finish();
+                     i=new Intent(Login.this,MainActivityParent.class);
                  }else{
                      Toast.makeText(this,"Usuario o password invalido",Toast.LENGTH_LONG).show();
                  }
              }
          }
+         startActivity(i);
+         finish();
     }
 }

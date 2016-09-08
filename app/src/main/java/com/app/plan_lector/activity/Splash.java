@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.app.plan_lector.R;
 import com.crashlytics.android.Crashlytics;
+
 import io.fabric.sdk.android.Fabric;
 
 public class Splash extends Activity {
