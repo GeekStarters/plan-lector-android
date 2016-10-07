@@ -14,4 +14,7 @@
     <string name="server_exception_error_message_resource_not_found">Recurso solicitado no existe en el servidor</string>
     <string name="server_exception_error_message_forbidden">Error en el servidor</string>
     <string name="error">Error</string>
+
+    <string name="str_next">Siguiente</string>
+    <string name="title_activity_result">¡Resultados!</string>
 </resources>
