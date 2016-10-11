@@ -1,6 +1,7 @@
 package com.app.plan_lector.fragment.teacher;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,15 +11,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.app.plan_lector.R;
+import com.app.plan_lector.activity.ReaderActivity;
 import com.avast.android.dialogs.fragment.ListDialogFragment;
 import com.avast.android.dialogs.iface.IListDialogListener;
 
 /**
  * Created by Gabriela Mejia on 29/10/2016.
  */
-public class Library extends Fragment implements View.OnClickListener, IListDialogListener {
+public class Library extends Fragment implements View.OnClickListener, IListDialogListener, View.OnLongClickListener {
     Activity context;
-    private ImageView image1, image2, image3, image4, image5;
+    private ImageView image1;
     private static final int BOOK = 74295;
 
 
@@ -41,20 +43,31 @@ public class Library extends Fragment implements View.OnClickListener, IListDial
 
     private void init() {
         image1 = (ImageView) context.findViewById(R.id.imageView);
-        image2 = (ImageView) context.findViewById(R.id.imageView2);
-        image3 = (ImageView) context.findViewById(R.id.imageView3);
-        image4 = (ImageView) context.findViewById(R.id.imageView4);
-        image5 = (ImageView) context.findViewById(R.id.imageView5);
+        image1.setOnLongClickListener(this);
         image1.setOnClickListener(this);
-        image4.setOnClickListener(this);
-        image3.setOnClickListener(this);
-        image2.setOnClickListener(this);
-        image5.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.imageView:
+                startActivity(new Intent(context,ReaderActivity.class));
+                break;
+        }
+
+    }
+
+    @Override
+    public void onListItemSelected(CharSequence value, int number, int requestCode) {
+        Log.i("Respuesta",value+" "+number+" "+requestCode);
+        if (requestCode == BOOK) {
+            Log.i("Seleccionado:",""+value);
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        switch (view.getId()){
             case R.id.imageView:
                 ListDialogFragment
                         .createBuilder(context, getFragmentManager())
@@ -101,13 +114,6 @@ public class Library extends Fragment implements View.OnClickListener, IListDial
                         .show();
                 break;
         }
-    }
-
-    @Override
-    public void onListItemSelected(CharSequence value, int number, int requestCode) {
-        Log.i("Respuesta",value+" "+number+" "+requestCode);
-        if (requestCode == BOOK) {
-            Log.i("Seleccionado:",""+value);
-        }
+        return true;
     }
 }

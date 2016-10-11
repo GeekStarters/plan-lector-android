@@ -42,44 +42,44 @@ public class BookListStudent extends Fragment {
 
     private void llenarListaS() {
         resultado=new ArrayList<>();
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas (Estudiante)"));
         reciclador.setAdapter(new GridAdapter(resultado,getActivity()));
     }
 
 
     private void llenarLista() {
         resultado=new ArrayList<>();
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
-        resultado.add(new LibroTexto(R.drawable.eos,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
+        resultado.add(new LibroTexto(R.drawable.elprincipito,"Matematicas I","Libro de Matematicas"));
         reciclador.setAdapter(new GridAdapter(resultado,getActivity()));
     }
 

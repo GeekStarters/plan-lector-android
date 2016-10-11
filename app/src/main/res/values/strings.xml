@@ -17,4 +17,5 @@
 
     <string name="str_next">Siguiente</string>
     <string name="title_activity_result">¡Resultados!</string>
+    <string name="url">url</string>
 </resources>
