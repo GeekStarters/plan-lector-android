@@ -1,6 +1,7 @@
 package com.app.plan_lector.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import com.app.plan_lector.fragment.parent.AvanceAlumno;
 import com.app.plan_lector.fragment.parent.MyAccountTeacher;
 import com.app.plan_lector.fragment.parent.Rank;
 import com.navdrawer.SimpleSideDrawer;
+import com.parse.ParseUser;
 
 public class MainActivityParent extends AppCompatActivity implements View.OnClickListener{
 
@@ -38,6 +40,7 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
 		context=this;
 		setContentView(R.layout.activity_main);
 		setToolbar();
+		ParseUser currentUser = ParseUser.getCurrentUser();
 		init();
 		selectItem(1);
 	}
@@ -65,7 +68,7 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
         account = (LinearLayout)mNav.findViewById(R.id.account);
 		logout = (LinearLayout)mNav.findViewById(R.id.logout);
 		logout.setOnClickListener(this);
-        report.setOnClickListener(this);
+        //report.setOnClickListener(this);
 		rank.setOnClickListener(this);
         account.setOnClickListener(this);
 	}
@@ -140,6 +143,11 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
                 selectItem(3);
                 mNav.toggleLeftDrawer();
                 break;
+			case R.id.logout:
+				mNav.toggleLeftDrawer();
+				ParseUser.logOut();
+				startActivity(new Intent(MainActivityParent.this,Login.class));
+				break;
 		}
 	}
 

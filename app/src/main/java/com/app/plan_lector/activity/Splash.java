@@ -6,9 +6,12 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.app.plan_lector.R;
 import com.crashlytics.android.Crashlytics;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -68,9 +71,30 @@ public class Splash extends Activity {
 
         @Override
         protected void onPostExecute(Boolean result) {
-            i=new Intent(Splash.this, Login.class);
+
+            ParseUser currentUser = ParseUser.getCurrentUser();
+
+            if(currentUser == null){
+                i=new Intent(Splash.this,Login.class);
+            }else {
+                //String email = currentUser.getEmail();
+                String idrol = currentUser.getString("role_id");
+
+                switch (idrol){
+                    case "il0Li2XGT5":
+                        i=new Intent(Splash.this,MainActivityParent.class);
+                        break;
+                    case "izykI0EPGl":
+                        i=new Intent(Splash.this,MainActivityTeacher.class);
+                        break;
+                    case "sFmdvOV202":
+                        i=new Intent(Splash.this,MainActivityStudent.class);
+                        break;
+                }
+            }
             startActivity(i);
             finish();
+
         }
     }
 

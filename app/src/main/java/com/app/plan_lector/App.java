@@ -18,7 +18,13 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, getString(R.string.Parse_APPID), getString(R.string.Parse_CLIENTID));
+
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getString(R.string.Parse_APPID))
+                .clientKey(getString(R.string.Parse_CLIENTID))
+                .build()
+        );
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
     }

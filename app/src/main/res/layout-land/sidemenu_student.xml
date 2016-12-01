@@ -54,34 +54,8 @@
             android:paddingTop="10dp"
             android:paddingRight="15dp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/games"
-        android:background="@drawable/border_one_line_bottom">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:text="Juegos"
-            android:padding="10dp"
-            android:gravity="left|fill_vertical"
-            android:textSize="15sp"
-            android:layout_weight="0.40"
-            android:layout_marginBottom="1dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/flecha"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:paddingRight="15dp"/>
-    </LinearLayout>
-    <LinearLayout
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -141,6 +115,7 @@
         android:orientation="horizontal"
         android:id="@+id/account"
         android:background="@drawable/border_one_line_bottom">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,6 +129,7 @@
             android:textSize="15sp"
             android:layout_weight="0.40"
             android:layout_marginBottom="1dp"/>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

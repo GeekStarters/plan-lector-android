@@ -24,6 +24,7 @@ import com.app.plan_lector.fragment.teacher.Library;
 import com.app.plan_lector.fragment.teacher.MyAccountTeacher;
 import com.app.plan_lector.fragment.teacher.Rank;
 import com.navdrawer.SimpleSideDrawer;
+import com.parse.ParseUser;
 
 public class MainActivityTeacher extends AppCompatActivity implements View.OnClickListener{
 
@@ -43,6 +44,7 @@ public class MainActivityTeacher extends AppCompatActivity implements View.OnCli
 		}
 		context=this;
 		setContentView(R.layout.activity_main);
+		ParseUser currentUser = ParseUser.getCurrentUser();
 		setToolbar();
 		init();
 		selectItem(1);
@@ -198,6 +200,7 @@ public class MainActivityTeacher extends AppCompatActivity implements View.OnCli
                 break;
 			case R.id.logout:
 				mNav.toggleLeftDrawer();
+				ParseUser.logOut();
 				startActivity(new Intent(MainActivityTeacher.this,Login.class));
 				break;
 		}

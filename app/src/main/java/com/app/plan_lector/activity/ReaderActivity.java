@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,10 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
+import com.app.plan_lector.fragment.student.Games;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,12 +35,23 @@ public class ReaderActivity extends ListActivity {
     private LayoutInflater inflater;
     private List<RowData> contentDetails;
     private TextView logo;
+    private Activity context;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_reader);
+        Button b = (Button) findViewById(R.id.actividades);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new MainActivityStudent().selectItem(2);
+            }
+        });
         String BOOK_NAME = getIntent().getStringExtra("name");
         inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         contentDetails = new ArrayList<RowData>();
@@ -64,7 +78,7 @@ public class ReaderActivity extends ListActivity {
             super(context, resource, textViewResourceId, objects);
         }
 
-        private class ViewHolder{
+        private class ViewHolder {
             private View row;
             private TextView titleHolder = null;
 
@@ -74,7 +88,7 @@ public class ReaderActivity extends ListActivity {
             }
 
             public TextView getTitle() {
-                if(null == titleHolder)
+                if (null == titleHolder)
                     titleHolder = (TextView) row.findViewById(R.id.title);
                 return titleHolder;
             }
@@ -85,7 +99,7 @@ public class ReaderActivity extends ListActivity {
             ViewHolder holder = null;
             TextView title = null;
             RowData rowData = getItem(position);
-            if(null == convertView){
+            if (null == convertView) {
                 convertView = inflater.inflate(R.layout.list, null);
                 holder = new ViewHolder(convertView);
                 convertView.setTag(holder);
@@ -102,7 +116,7 @@ public class ReaderActivity extends ListActivity {
         if (tocReferences == null) {
             return;
         }
-        for (TOCReference tocReference:tocReferences) {
+        for (TOCReference tocReference : tocReferences) {
             StringBuilder tocString = new StringBuilder();
             for (int i = 0; i < depth; i++) {
                 tocString.append("\t");
@@ -116,7 +130,7 @@ public class ReaderActivity extends ListActivity {
         }
     }
 
-    private class RowData{
+    private class RowData {
         private String title;
         private Resource resource;
 
@@ -141,7 +155,6 @@ public class ReaderActivity extends ListActivity {
         }
 
     }
-
 
 
     @Override
