@@ -1,4 +1,4 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.teacher;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,9 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
+import com.app.plan_lector.activity.Login;
 import com.app.plan_lector.fragment.teacher.AvanceAlumno;
-import com.app.plan_lector.fragment.teacher.BookListStudent;
-import com.app.plan_lector.fragment.teacher.BookListTeacher;
+import com.app.plan_lector.fragment.teacher.LibraryStudent;
 import com.app.plan_lector.fragment.teacher.Library;
 import com.app.plan_lector.fragment.teacher.MyAccountTeacher;
 import com.app.plan_lector.fragment.teacher.Rank;
@@ -98,7 +98,7 @@ public class MainActivityTeacher extends AppCompatActivity implements View.OnCli
 				logo.setText("Mi Biblioteca");
 				break;
 			case 2:
-				BookListStudent games = new BookListStudent();
+				LibraryStudent games = new LibraryStudent();
 				Bundle bun = new Bundle();
 				games.setArguments(bun);
 				FragmentManager fragmentManager2 = getSupportFragmentManager();
@@ -141,17 +141,7 @@ public class MainActivityTeacher extends AppCompatActivity implements View.OnCli
 						.commit();
 				logo.setText("Mi Perfil");
 				break;
-            case 6:
-                BookListTeacher libro = new BookListTeacher();
-                Bundle b = new Bundle();
-                libro.setArguments(b);
-                FragmentManager fragmentManager6 = getSupportFragmentManager();
-                fragmentManager6
-                        .beginTransaction()
-                        .replace(R.id.main_content, libro)
-                        .commit();
-                logo.setText("Mi Biblioteca");
-                break;
+
 		}
 
 	}
@@ -179,7 +169,7 @@ public class MainActivityTeacher extends AppCompatActivity implements View.OnCli
 				mNav.toggleLeftDrawer();
 				break;
 			case R.id.books:
-				selectItem(6);
+				selectItem(1);
 				mNav.toggleLeftDrawer();
 				break;
 			case R.id.rank:

@@ -12,7 +12,7 @@ import com.app.plan_lector.R;
 /**
  * Created by Gabriela Mejia on 30/10/2016.
  */
-public class MyAccountTeacher extends Fragment implements View.OnClickListener {
+public class MyAccountParent extends Fragment implements View.OnClickListener {
     Activity context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

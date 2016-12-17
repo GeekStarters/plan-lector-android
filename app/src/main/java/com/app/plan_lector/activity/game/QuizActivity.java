@@ -1,13 +1,11 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.game;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -15,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
+import com.app.plan_lector.activity.student.ResultActivity;
 import com.app.plan_lector.auxiliar.DbHelper;
 import com.app.plan_lector.model.Question;
 

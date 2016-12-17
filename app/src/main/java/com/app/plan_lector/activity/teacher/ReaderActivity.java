@@ -1,4 +1,4 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.teacher;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.fragment.student.Games;
+import com.app.plan_lector.activity.student.MainActivityStudent;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,13 +42,6 @@ public class ReaderActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.activity_reader);
-        Button b = (Button) findViewById(R.id.actividades);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new MainActivityStudent().selectItem(2);
-            }
-        });
         String BOOK_NAME = getIntent().getStringExtra("name");
         inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         contentDetails = new ArrayList<RowData>();

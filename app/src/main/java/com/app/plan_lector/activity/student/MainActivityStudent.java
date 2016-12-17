@@ -1,4 +1,4 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.student;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.fragment.student.BookList;
+import com.app.plan_lector.activity.Login;
 import com.app.plan_lector.fragment.student.Games;
 import com.app.plan_lector.fragment.student.Library;
 import com.app.plan_lector.fragment.student.MyAccountStudent;
@@ -51,7 +51,7 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
         ParseUser currentUser = ParseUser.getCurrentUser();
         setToolbar();
         init();
-        selectItem(1);
+        selectItem(getIntent().getIntExtra("var",1));
     }
 
     @Override
@@ -144,17 +144,6 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
                         .commit();
                 logo.setText("Mi Perfil");
                 break;
-            case 6:
-                BookList libro = new BookList();
-                Bundle b = new Bundle();
-                libro.setArguments(b);
-                FragmentManager fragmentManager6 = getSupportFragmentManager();
-                fragmentManager6
-                        .beginTransaction()
-                        .replace(R.id.main_content, libro)
-                        .commit();
-                logo.setText("Mi Biblioteca");
-                break;
         }
 
     }
@@ -181,7 +170,7 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
                 mNav.toggleLeftDrawer();
                 break;
             case R.id.books:
-                selectItem(6);
+                selectItem(1);
                 mNav.toggleLeftDrawer();
                 break;
             case R.id.rank:

@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.activity.MemoryActivity43;
-import com.app.plan_lector.activity.QuizActivity;
+import com.app.plan_lector.activity.game.QuizActivity;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.

@@ -11,15 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.app.plan_lector.R;
-import com.parse.FindCallback;
-import com.parse.GetCallback;
+import com.app.plan_lector.activity.student.MainActivityStudent;
+import com.app.plan_lector.activity.teacher.MainActivityTeacher;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
-
-import java.util.List;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -76,6 +72,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             break;
                         case "sFmdvOV202":
                             i=new Intent(Login.this,MainActivityStudent.class);
+                            i.putExtra("var",1);
                             break;
                     }
 

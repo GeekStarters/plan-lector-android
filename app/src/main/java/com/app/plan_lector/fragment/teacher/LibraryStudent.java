@@ -18,7 +18,7 @@ import com.avast.android.dialogs.iface.IListDialogListener;
 /**
  * Created by Gabriela Mejia on 29/10/2016.
  */
-public class Library extends Fragment implements View.OnClickListener, IListDialogListener, View.OnLongClickListener {
+public class LibraryStudent extends Fragment implements View.OnClickListener, IListDialogListener, View.OnLongClickListener {
     Activity context;
     private ImageView image1;
     private static final int BOOK = 74295;

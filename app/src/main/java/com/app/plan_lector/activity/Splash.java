@@ -6,11 +6,11 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.app.plan_lector.R;
+import com.app.plan_lector.activity.student.MainActivityStudent;
+import com.app.plan_lector.activity.teacher.MainActivityTeacher;
 import com.crashlytics.android.Crashlytics;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import io.fabric.sdk.android.Fabric;
@@ -89,6 +89,7 @@ public class Splash extends Activity {
                         break;
                     case "sFmdvOV202":
                         i=new Intent(Splash.this,MainActivityStudent.class);
+                        i.putExtra("var",1);
                         break;
                 }
             }

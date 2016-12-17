@@ -1,4 +1,4 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.student;
 
 import android.app.Activity;
 import android.os.Bundle;

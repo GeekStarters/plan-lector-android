@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.activity.MemoryActivity43;
-import com.app.plan_lector.activity.MemoryActivity54;
-import com.app.plan_lector.activity.MemoryActivity65;
-import com.app.plan_lector.activity.MemoryActivity66;
+import com.app.plan_lector.activity.game.MemoryActivity43;
+import com.app.plan_lector.activity.game.MemoryActivity54;
+import com.app.plan_lector.activity.game.MemoryActivity65;
+import com.app.plan_lector.activity.game.MemoryActivity66;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.

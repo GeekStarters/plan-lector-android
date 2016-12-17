@@ -1,4 +1,4 @@
-package com.app.plan_lector.activity;
+package com.app.plan_lector.activity.game;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

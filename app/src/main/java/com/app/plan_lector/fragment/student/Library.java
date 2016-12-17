@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.app.plan_lector.R;
-import com.app.plan_lector.activity.ReaderActivity;
+import com.app.plan_lector.activity.student.ReaderActivity;
 import com.avast.android.dialogs.fragment.ListDialogFragment;
 import com.avast.android.dialogs.iface.IListDialogListener;
 

@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.app.plan_lector.R;
 import com.app.plan_lector.fragment.parent.AvanceAlumno;
-import com.app.plan_lector.fragment.parent.MyAccountTeacher;
+import com.app.plan_lector.fragment.parent.MyAccountParent;
 import com.app.plan_lector.fragment.parent.Rank;
 import com.navdrawer.SimpleSideDrawer;
 import com.parse.ParseUser;
@@ -98,7 +98,7 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
 				logo.setText("Cartilla");
 				break;
 			case 3:
-				MyAccountTeacher cuenta = new MyAccountTeacher();
+				MyAccountParent cuenta = new MyAccountParent();
                 Bundle bundle = new Bundle();
                 cuenta.setArguments(bundle);
 				FragmentManager fragmentManager5 = getSupportFragmentManager();
