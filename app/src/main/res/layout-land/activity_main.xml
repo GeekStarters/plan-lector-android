@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:fitsSystemWindows="true"
+tools:context=".activity.student.MainActivityStudent"
+android:orientation="vertical">
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".activity.student.MainActivityStudent"
-    android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_height="wrap_content"
-        android:contentInsetStart="0dp"
-        android:contentInsetLeft="0dp"
-        android:background="@drawable/gradient_image"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    android:minHeight="?attr/actionBarSize"
+    android:layout_height="wrap_content"
+    android:contentInsetStart="0dp"
+    android:contentInsetLeft="0dp"
+    android:background="@drawable/gradient_image"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="?attr/actionBarSize"
-                android:id="@+id/logo"
-                android:paddingTop="15sp"
-                android:adjustViewBounds="true"
-                android:textSize="16dp"
-                android:textColor="#fff"
-                android:text="Mi Biblioteca"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:visibility="visible"/>
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
     <RelativeLayout
-        android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/logo"
+            android:paddingTop="15sp"
+            android:adjustViewBounds="true"
+            android:textSize="16dp"
+            android:textColor="#fff"
+            android:text="Mi Biblioteca"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"/>
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>
+<RelativeLayout
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 </LinearLayout>

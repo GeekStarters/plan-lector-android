@@ -33,12 +33,14 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/boy"
                 android:layout_weight="1.45"/>
+            <!--LinerLayout Horizontal: Contiene la informacion del Perfil-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0.65">
+                <!--LinerLayout Vertical: Contiene los labels  (valores estaticos el perfil)-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,78 +110,93 @@
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
                 </LinearLayout>
+                <!--LinerLayout  End -->
+
+                <!--LinerLayout Vertical: Contiene la informacion del perfil  (valores dinamicos)-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center">
+                    <!--TextView:UserName-->
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:text="samuelgomez04"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:text="Samuel"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:text="Gomez"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
-                    <TextView
+                        android:id="@+id/student_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_marginTop="5dp"
-                        android:text="04-Septiembre-04"
                         android:textSize="25dp"/>
+                    <!--TextView:Nombre-->
                     <TextView
+                        android:id="@+id/student_first_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
-                        android:text="Centro Escolar Nacional"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
+                    <!--TextView:Apellido-->
                     <TextView
+                        android:id="@+id/student_last_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
-                        android:text="5to Grado"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
+                    <!--TextView:Fecha de Nacimiento-->
                     <TextView
+                        android:id="@+id/student_birthdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
-                        android:text="San José"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
+                    <!--TextView:Escuela-->
                     <TextView
+                        android:id="@+id/student_school"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25dp"/>
+                    <!--TextView:Grado-->
+                    <TextView
+                        android:id="@+id/student_grade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25dp"/>
+                    <!--TextView:Ciudad-->
+                    <TextView
+                        android:id="@+id/student_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25dp"/>
+                    <!--TextView:Pais-->
+                    <TextView
+                        android:id="@+id/student_country"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:text="Costa Rica"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
+                    <!--TextView:Maestro-->
                     <TextView
+                        android:id="@+id/student_teacher"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
-                        android:text="Juan Perez"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
                 </LinearLayout>
+                <!--LinerLayout  End -->
 
             </LinearLayout>
+            <!--End LinerLayout Horizontal-->
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

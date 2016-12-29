@@ -33,14 +33,12 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/boy"
                 android:layout_weight="1.45"/>
-            <!--LinerLayout Horizontal: Contiene la informacion del Perfil-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0.65">
-                <!--LinerLayout Vertical: Contiene los labels  (valores estaticos el perfil)-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,81 +86,56 @@
                         android:text="Pais:"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:text="Nivel:"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
                 </LinearLayout>
-                <!--LinerLayout  End -->
-
-                <!--LinerLayout Vertical: Contiene la informacion del perfil  (valores dinamicos)-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center">
-                    <!--TextView:UserName-->
                     <TextView
-                        android:id="@+id/teacher_username"
-                        android:text="teacher_username"
+                        android:id="@+id/parent_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:text="padre_username"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25dp"/>
+                    <TextView
+                        android:id="@+id/parent_first_name"
+                        android:text="padre_nombres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <!--TextView:Nombre-->
                     <TextView
-                        android:id="@+id/teacher_first_name"
-                        android:text="teacher_nombres"
+                        android:id="@+id/parent_last_name"
+                        android:text="padre_apellidos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <!--TextView:Apellido-->
                     <TextView
-                        android:id="@+id/teacher_last_name"
-                        android:text="teacher_apellidos"
+                        android:id="@+id/parent_birthdate"
+                        android:text="04-Septiembre-04"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <!--TextView:Fecha de Nacimiento-->
                     <TextView
-                        android:id="@+id/teacher_birthdate"
-                        android:text="dia-mes-año"
+                        android:id="@+id/parent_country"
+                        android:text="padre_pais"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <!--TextView:Pais-->
                     <TextView
-                        android:id="@+id/teacher_country"
-                        android:text="teacher_pais"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
-                    <!--TextView:Ciudad-->
-                    <TextView
-                        android:id="@+id/teacher_state"
-                        android:text="teacher_ciudad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
-                    <!--TextView:Nivel (Level)-->
-                    <TextView
-                        android:id="@+id/teacher_level"
-                        android:text="teacher_nivel"
+                        android:id="@+id/parent_state"
+                        android:text="padre_ciudad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
@@ -170,10 +143,8 @@
                         android:textSize="25dp"/>
 
                 </LinearLayout>
-                <!--LinerLayout  End -->
 
             </LinearLayout>
-            <!--End LinerLayout Horizontal-->
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
