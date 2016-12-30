@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
@@ -15,6 +16,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.
@@ -40,6 +42,7 @@ public class MyAccountTeacher extends Fragment implements View.OnClickListener {
     private void init() {
 
         /*Declaracion de TextView a utilizar*/
+        final ImageView teacher_image = (ImageView)context.findViewById(R.id.photo);
         final TextView teacher_username = (TextView) context.findViewById(R.id.teacher_username);
         final TextView teacher_first_name = (TextView) context.findViewById(R.id.teacher_first_name);
         final TextView teacher_last_name = (TextView) context.findViewById(R.id.teacher_last_name);
@@ -66,7 +69,8 @@ public class MyAccountTeacher extends Fragment implements View.OnClickListener {
         //teacher_country.setText(pais);
         final String ciudad_id = currentUser.getString("state_id");
         //teacher_state.setText(ciudad);
-
+        String url = currentUser.getParseFile("photo").getUrl();
+        Picasso.with(context).load(url).fit().into(teacher_image);
         //final String level_id = currentUser.getString("level_id");
         //teacher_level.setText(level);
 

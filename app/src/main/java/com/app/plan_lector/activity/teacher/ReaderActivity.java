@@ -41,8 +41,15 @@ public class ReaderActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        setContentView(R.layout.activity_reader);
-        String BOOK_NAME = getIntent().getStringExtra("name");
+        setContentView(R.layout.activity_reader_teacher);
+        final String BOOK_NAME = getIntent().getStringExtra("name");
+        Button b2 = (Button)findViewById(R.id.resumen);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ReaderActivity.this,MainActivityTeacher.class).putExtra("var",6).putExtra("descrip",BOOK_NAME));
+            }
+        });
         inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         contentDetails = new ArrayList<RowData>();
         AssetManager assetManager = getAssets();

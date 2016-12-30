@@ -54,12 +54,6 @@
                 android:text="Resumen"
                 android:id="@+id/resumen"
                 android:layout_weight="1"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Actividades"
-                android:id="@+id/actividades"
-                android:layout_weight="1"/>
         </LinearLayout>
 
         <ListView

@@ -28,14 +28,12 @@
                     android:layout_width="65dp"
                     android:layout_height="100dp"
                     android:id="@+id/imageView"
-                    android:layout_weight="1"
-                    android:src="@drawable/elprincipito"/>
+                    android:layout_weight="1"/>
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="100dp"
                     android:id="@+id/imageView2"
-                    android:layout_weight="1"
-                    android:src="@drawable/peterpan"/>
+                    android:layout_weight="1"/>
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="100dp"

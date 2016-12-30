@@ -86,6 +86,7 @@ public class Splash extends Activity {
                         break;
                     case "izykI0EPGl":
                         i=new Intent(Splash.this,MainActivityTeacher.class);
+                        i.putExtra("var",1);
                         break;
                     case "sFmdvOV202":
                         i=new Intent(Splash.this,MainActivityStudent.class);

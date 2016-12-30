@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
@@ -15,6 +16,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.
@@ -38,7 +40,7 @@ public class MyAccountParent extends Fragment implements View.OnClickListener {
 
 
     private void init() {
-
+        final ImageView parent_photo = (ImageView)context.findViewById(R.id.photo);
         final TextView parent_username = (TextView) context.findViewById(R.id.parent_username);
         final TextView parent_first_name = (TextView) context.findViewById(R.id.parent_first_name);
         final TextView parent_last_name = (TextView) context.findViewById(R.id.parent_last_name);
@@ -57,6 +59,8 @@ public class MyAccountParent extends Fragment implements View.OnClickListener {
         parent_last_name.setText(apellidos);
         String fechaNacimiento = currentUser.getDate("birthdate").toString();
         parent_birthdate.setText(fechaNacimiento);
+        String url = currentUser.getParseFile("photo").getUrl();
+        Picasso.with(context).load(url).fit().into(parent_photo);
         final String pais_id = currentUser.getString("country_id");
         //parent_country.setText(pais);
         final String ciudad_id = currentUser.getString("state_id");

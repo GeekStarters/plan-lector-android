@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.app.plan_lector.R;
 import com.app.plan_lector.activity.Login;
+import com.app.plan_lector.fragment.ResumenBook;
 import com.app.plan_lector.fragment.student.Games;
 import com.app.plan_lector.fragment.student.Library;
 import com.app.plan_lector.fragment.student.MyAccountStudent;
@@ -81,7 +82,6 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
         logout.setOnClickListener(this);
         home.setOnClickListener(this);
         report.setOnClickListener(this);
-        //games.setOnClickListener(this);
         rank.setOnClickListener(this);
         books.setOnClickListener(this);
         account.setOnClickListener(this);
@@ -143,6 +143,18 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
                         .replace(R.id.main_content, cuenta)
                         .commit();
                 logo.setText("Mi Perfil");
+                break;
+            case 6:
+                ResumenBook resumen = new ResumenBook();
+                Bundle bundle6 = new Bundle();
+                bundle6.putString("RESUL",getIntent().getStringExtra("descrip"));
+                resumen.setArguments(bundle6);
+                FragmentManager fragmentManager6 = getSupportFragmentManager();
+                fragmentManager6
+                        .beginTransaction()
+                        .replace(R.id.main_content, resumen)
+                        .commit();
+                logo.setText("Resumen");
                 break;
         }
 

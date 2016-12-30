@@ -16,6 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.plan_lector.R;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,6 +45,7 @@ public class ReaderActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.activity_reader);
+        final String BOOK_NAME = getIntent().getStringExtra("name");
         Button b = (Button) findViewById(R.id.actividades);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,22 +53,36 @@ public class ReaderActivity extends ListActivity {
                 startActivity(new Intent(ReaderActivity.this,MainActivityStudent.class).putExtra("var",2));
             }
         });
-        String BOOK_NAME = getIntent().getStringExtra("name");
-        inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        contentDetails = new ArrayList<RowData>();
-        AssetManager assetManager = getAssets();
-        try {
-            InputStream epubInputStream = assetManager.open(BOOK_NAME);
-            Book book = (new EpubReader()).readEpub(epubInputStream);
-            logContentsTable(book.getTableOfContents().getTocReferences(), 0);
-        } catch (IOException e) {
-            Log.e("epublib", e.getMessage());
-        }
+        Button b2 = (Button)findViewById(R.id.resumen);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ReaderActivity.this,MainActivityStudent.class).putExtra("var",6).putExtra("descrip",BOOK_NAME));
+            }
+        });
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ebooks");
+        query.whereEqualTo("objectId",BOOK_NAME);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                contentDetails = new ArrayList<RowData>();
+                try {
+                    InputStream epubInputStream = object.getParseFile("path").getDataStream();
+                    Book book = (new EpubReader()).readEpub(epubInputStream);
+                    logContentsTable(book.getTableOfContents().getTocReferences(), 0);
+                } catch (IOException ex) {
+                    Log.e("epublib", ex.getMessage());
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
 
-        CustomAdapter adapter = new CustomAdapter(this, R.layout.list,
-                R.id.title, contentDetails);
-        setListAdapter(adapter);
-        getListView().setTextFilterEnabled(true);
+                CustomAdapter adapter = new CustomAdapter(context, R.layout.list, R.id.title, contentDetails);
+                setListAdapter(adapter);
+                getListView().setTextFilterEnabled(true);
+            }
+        });
+
     }
 
 
