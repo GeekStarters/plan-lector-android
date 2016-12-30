@@ -37,6 +37,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:id="@+id/memory"
+                    android:visibility="gone"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1">
                     <ImageView
@@ -57,6 +58,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:id="@+id/soup"
+                    android:visibility="gone"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1">
 
@@ -81,6 +84,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:id="@+id/quiz"
+                    android:visibility="gone"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1">
                     <ImageView
@@ -102,6 +106,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:id="@+id/hang"
+                    android:visibility="gone"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1">
                     <ImageView

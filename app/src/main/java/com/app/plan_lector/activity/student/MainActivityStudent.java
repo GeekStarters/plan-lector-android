@@ -103,6 +103,7 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
             case 2:
                 Games games = new Games();
                 Bundle bun = new Bundle();
+                bun.putString("RESUL",getIntent().getStringExtra("descrip"));
                 games.setArguments(bun);
                 FragmentManager fragmentManager2 = getSupportFragmentManager();
                 fragmentManager2

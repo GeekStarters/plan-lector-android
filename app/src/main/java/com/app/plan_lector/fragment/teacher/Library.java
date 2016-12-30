@@ -104,8 +104,6 @@ public class Library extends Fragment implements View.OnClickListener{
                             con.getFirstInBackground(new GetCallback<ParseObject>() {
                                 @Override
                                 public void done(ParseObject parseObject, ParseException e) {
-                                    Log.e("url: ",parseObject.getParseFile("cover_book").getUrl());
-                                    Log.e("id: ",parseObject.getObjectId());
                                     loa.add(new LibroTexto(parseObject.getParseFile("cover_book").getUrl(),parseObject.getObjectId()));
                                     loadImages(loa);
                                 }

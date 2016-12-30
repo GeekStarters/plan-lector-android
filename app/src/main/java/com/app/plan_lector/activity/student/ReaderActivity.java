@@ -50,7 +50,7 @@ public class ReaderActivity extends ListActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ReaderActivity.this,MainActivityStudent.class).putExtra("var",2));
+                startActivity(new Intent(ReaderActivity.this,MainActivityStudent.class).putExtra("var",2).putExtra("descrip",BOOK_NAME));
             }
         });
         Button b2 = (Button)findViewById(R.id.resumen);

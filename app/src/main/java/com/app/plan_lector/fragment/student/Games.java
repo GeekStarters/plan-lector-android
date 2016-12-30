@@ -9,16 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.app.plan_lector.R;
 import com.app.plan_lector.activity.game.QuizActivity;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.
  */
 public class Games extends Fragment implements View.OnClickListener {
+
+    String valor;
     Activity context;
-    LinearLayout memory, quiz;
+    LinearLayout memory, quiz,soup,hang;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,6 +45,31 @@ public class Games extends Fragment implements View.OnClickListener {
     private void init() {
         memory = (LinearLayout) context.findViewById(R.id.memory);
         quiz = (LinearLayout) context.findViewById(R.id.quiz);
+        soup = (LinearLayout) context.findViewById(R.id.soup);
+        hang = (LinearLayout)context.findViewById(R.id.hang);
+        Bundle bundle = this.getArguments();
+        valor =bundle.getString("RESUL");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ebooks");
+        query.whereEqualTo("objectId",valor);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if(object.getBoolean("memory")){
+                    memory.setVisibility(View.VISIBLE);
+                }
+                if(object.getBoolean("hangman")){
+                    hang.setVisibility(View.VISIBLE);
+                }
+                if(object.getBoolean("quiz")){
+                    quiz.setVisibility(View.VISIBLE);
+                }
+                if(object.getBoolean("soup")){
+                    soup.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        hang.setOnClickListener(this);
+        soup.setOnClickListener(this);
         memory.setOnClickListener(this);
         quiz.setOnClickListener(this);
     }
@@ -48,6 +80,7 @@ public class Games extends Fragment implements View.OnClickListener {
             case R.id.memory:
                 MemoryGame memoryG = new MemoryGame();
                 Bundle b = new Bundle();
+                b.putString("RESUL",valor);
                 memoryG.setArguments(b);
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager
@@ -57,6 +90,10 @@ public class Games extends Fragment implements View.OnClickListener {
                 break;
             case R.id.quiz:
                 startActivity(new Intent(context, QuizActivity.class));
+                break;
+            case R.id.soup:
+                break;
+            case R.id.hang:
                 break;
         }
 

@@ -14,12 +14,17 @@ import com.app.plan_lector.activity.game.MemoryActivity43;
 import com.app.plan_lector.activity.game.MemoryActivity54;
 import com.app.plan_lector.activity.game.MemoryActivity65;
 import com.app.plan_lector.activity.game.MemoryActivity66;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 /**
  * Created by Gabriela Mejia on 30/10/2016.
  */
 public class MemoryGame extends Fragment implements View.OnClickListener {
     Activity context;
+    String valor;
     LinearLayout memory43, memory54,memory65,memory66;
 
     @Override
@@ -43,6 +48,36 @@ public class MemoryGame extends Fragment implements View.OnClickListener {
         memory54 = (LinearLayout)context.findViewById(R.id.memory54);
         memory65 = (LinearLayout)context.findViewById(R.id.memory65);
         memory66 = (LinearLayout)context.findViewById(R.id.memory66);
+        Bundle bundle = this.getArguments();
+        valor =bundle.getString("RESUL");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Memory");
+        query.whereEqualTo("ebook",valor);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                valor = object.getObjectId();
+                switch (object.getInt("levels")){
+                    case 1:
+                        memory43.setVisibility(View.VISIBLE);
+                        break;
+                    case 2:
+                        memory43.setVisibility(View.VISIBLE);
+                        memory54.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        memory43.setVisibility(View.VISIBLE);
+                        memory54.setVisibility(View.VISIBLE);
+                        memory65.setVisibility(View.VISIBLE);
+                        break;
+                    case 4:
+                        memory43.setVisibility(View.VISIBLE);
+                        memory54.setVisibility(View.VISIBLE);
+                        memory65.setVisibility(View.VISIBLE);
+                        memory66.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
         memory43.setOnClickListener(this);
         memory54.setOnClickListener(this);
         memory65.setOnClickListener(this);
@@ -55,16 +90,16 @@ public class MemoryGame extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.memory43:
-                startActivity(new Intent(context, MemoryActivity43.class));
+                startActivity(new Intent(context, MemoryActivity43.class).putExtra("valor",valor));
                 break;
             case R.id.memory54:
-                startActivity(new Intent(context, MemoryActivity54.class));
+                startActivity(new Intent(context, MemoryActivity54.class).putExtra("valor",valor));
                 break;
             case R.id.memory65:
-                startActivity(new Intent(context, MemoryActivity65.class));
+                startActivity(new Intent(context, MemoryActivity65.class).putExtra("valor",valor));
                 break;
             case R.id.memory66:
-                startActivity(new Intent(context, MemoryActivity66.class));
+                startActivity(new Intent(context, MemoryActivity66.class).putExtra("valor",valor));
                 break;
         }
 

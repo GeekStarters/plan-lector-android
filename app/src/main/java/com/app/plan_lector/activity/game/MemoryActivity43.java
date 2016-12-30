@@ -1,5 +1,6 @@
 package com.app.plan_lector.activity.game;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,13 +20,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.plan_lector.R;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
 public class MemoryActivity43 extends ActionBarActivity implements Runnable {
     private TextView lblPuntaje,lblFallas, logo;
-
+    List<InputStream>list;
+    Activity context;
+    String valor;
     private int puntaje,fallas;
     private ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10, img11,img12;
     private Button botonSalir,botonReiniciar;
@@ -39,6 +50,8 @@ public class MemoryActivity43 extends ActionBarActivity implements Runnable {
         super.onCreate(savedInstanceState);
         puntaje=0;
         fallas=0;
+        context=this;
+        valor = getIntent().getStringExtra("valor");
         setContentView(R.layout.memory43);
         setToolbar();
         iniciarCartas();
@@ -122,54 +135,82 @@ public class MemoryActivity43 extends ActionBarActivity implements Runnable {
 
     }
 
-    private void controlador(int opcion,ImageView img)
+    private void controlador(final int aux,final ImageView img)
     {
-        Bitmap bpm=null;
-        opcion--;
-        switch (valores[opcion])
-        {
-            case 1: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta1);break;
-            case 2: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta2);break;
-            case 3: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta3);break;
-            case 4: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta4);break;
-            case 5: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta5);break;
-            case 6: bpm= BitmapFactory.decodeResource(getResources(),R.drawable.carta6);break;
-        }
+        list = new ArrayList<>();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Memory");
+        query.whereEqualTo("objectId",valor);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                try {
+                    Log.e("URL",object.getParseFile("card1").getUrl());
+                    list.add(object.getParseFile("card1").getDataStream());
+                    list.add(object.getParseFile("card2").getDataStream());
+                    list.add(object.getParseFile("card3").getDataStream());
+                    list.add(object.getParseFile("card4").getDataStream());
+                    list.add(object.getParseFile("card5").getDataStream());
+                    list.add(object.getParseFile("card6").getDataStream());
+                    Bitmap bpm = loadImag(list,aux);
+                    int opcion = aux;
+                    opcion--;
+                    if(valorSeleccionado==-1) //para verificar que es la primera carta seleccionada
+                    {
+                        valorSeleccionado=opcion;
+                        img.setImageBitmap(bpm); //dibujas la carta
+                    }
+                    else
+                    {
+                        if(valores[valorSeleccionado]==valores[opcion]) //las dos son iguales
+                        {
+                            puntaje++;
+                            lblPuntaje.setText(puntaje+"");
 
-        if(valorSeleccionado==-1) //para verificar que es la primera carta seleccionada
-        {
-            valorSeleccionado=opcion;
-            img.setImageBitmap(bpm); //dibujas la carta
-        }
-        else
-        {
-            if(valores[valorSeleccionado]==valores[opcion]) //las dos son iguales
-            {
-                puntaje++;
-                lblPuntaje.setText(puntaje+"");
-                Toast.makeText(this,"¡Bien!",Toast.LENGTH_LONG).show(); //solo es un mensaje
-                img.setImageBitmap(bpm);
-                valorSeleccionado=-1; //para indicar que otra vez no hya carta girada
-               // Toast.makeText(this, "mensaje", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,"!Bien!",Toast.LENGTH_LONG).show(); //solo es un mensaje
+                            img.setImageBitmap(bpm);
+                            valorSeleccionado=-1; //para indicar que otra vez no hya carta girada
+                            // Toast.makeText(this, "mensaje", Toast.LENGTH_LONG).show();
+                        }
+                        else //son diferente
+                        {
+                            fallas++;
+                            lblFallas.setText(fallas+"");
+                            valorBorrar=opcion; //el valor que tengo que girar
+                            img.setImageBitmap(bpm);
+                            //runOnUiThread(new Runnable()
+                            Thread hilo=new Thread(MemoryActivity43.this);
+                            hilo.start(); //
+                            // Toast.makeText(this,"!Mal!",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(this,"!Mal!",100).show();
+
+
+                        }
+                    }
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
+
             }
-            else //son diferente
-            {
-                fallas++;
-                lblFallas.setText(fallas+"");
-                valorBorrar=opcion; //el valor que tengo que girar
-                img.setImageBitmap(bpm);
-                //runOnUiThread(new Runnable()
-                Thread hilo=new Thread(this);
-                hilo.start(); //
-               // Toast.makeText(this,"!Mal!",Toast.LENGTH_SHORT).show();
-                //Toast.makeText(this,"!Mal!",100).show();
+        });
 
-
-            }
-        }
 
 
     }
+
+    private Bitmap loadImag(List<InputStream> list, int opcion){
+        Bitmap bpm =null;
+        switch (valores[opcion--])
+        {
+            case 1: bpm= BitmapFactory.decodeStream(list.get(0));break;
+            case 2: bpm= BitmapFactory.decodeStream(list.get(1));break;
+            case 3: bpm= BitmapFactory.decodeStream(list.get(2));break;
+            case 4: bpm= BitmapFactory.decodeStream(list.get(3));break;
+            case 5: bpm= BitmapFactory.decodeStream(list.get(4));break;
+            case 6: bpm= BitmapFactory.decodeStream(list.get(5));break;
+        }
+        return bpm;
+    }
+
 
     private void iniciarCartas()
     {
