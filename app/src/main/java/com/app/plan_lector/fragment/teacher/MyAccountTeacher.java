@@ -47,9 +47,8 @@ public class MyAccountTeacher extends Fragment implements View.OnClickListener {
         final TextView teacher_first_name = (TextView) context.findViewById(R.id.teacher_first_name);
         final TextView teacher_last_name = (TextView) context.findViewById(R.id.teacher_last_name);
         final TextView teacher_birthdate = (TextView) context.findViewById(R.id.teacher_birthdate);
-        final TextView teacher_country = (TextView) context.findViewById(R.id.teacher_country);
-        final TextView teacher_state = (TextView) context.findViewById(R.id.teacher_state);
-        final TextView teacher_level = (TextView) context.findViewById(R.id.teacher_level);
+        final TextView teacher_country = (TextView) context.findViewById(R.id.teacher_state);
+        final TextView teacher_state = (TextView) context.findViewById(R.id.teacher_country);
 
         /*currentUser contiene la informacion del usuario actual (logueado)*/
         ParseUser currentUser = ParseUser.getCurrentUser();
@@ -63,14 +62,23 @@ public class MyAccountTeacher extends Fragment implements View.OnClickListener {
         teacher_first_name.setText(nombres);
         String apellidos = currentUser.getString("last_name");
         teacher_last_name.setText(apellidos);
-        String fechaNacimiento = currentUser.getDate("birthdate").toString();
+        String fechaNacimiento = currentUser.getDate("birthdate").toLocaleString().substring(0,12);
         teacher_birthdate.setText(fechaNacimiento);
         final String pais_id = currentUser.getString("country_id");
         //teacher_country.setText(pais);
         final String ciudad_id = currentUser.getString("state_id");
         //teacher_state.setText(ciudad);
-        String url = currentUser.getParseFile("photo").getUrl();
-        Picasso.with(context).load(url).fit().into(teacher_image);
+        if(currentUser.getParseFile("photo")!=null){
+            if(currentUser.getParseFile("photo").getUrl()!=null){
+                String url = currentUser.getParseFile("photo").getUrl();
+                Picasso.with(context).load(url).fit().into(teacher_image);
+            }else{
+                Picasso.with(context).load(R.drawable.account_no).fit().into(teacher_image);
+            }
+        }else{
+            Picasso.with(context).load(R.drawable.account_no).fit().into(teacher_image);
+        }
+
         //final String level_id = currentUser.getString("level_id");
         //teacher_level.setText(level);
 

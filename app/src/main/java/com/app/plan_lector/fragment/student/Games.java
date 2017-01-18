@@ -89,7 +89,7 @@ public class Games extends Fragment implements View.OnClickListener {
                         .commit();
                 break;
             case R.id.quiz:
-                startActivity(new Intent(context, QuizActivity.class));
+                startActivity(new Intent(context, QuizActivity.class).putExtra("RESUL",valor));
                 break;
             case R.id.soup:
                 break;

@@ -78,8 +78,16 @@ public class MyAccountStudent extends Fragment implements View.OnClickListener {
         //student_school.setText(school);
         //final String teacher_id = currentUser.getString("teacher_id");
         //student_teacher.setText(teacher);
-        String url = currentUser.getParseFile("photo").getUrl();
-        Picasso.with(context).load(url).fit().into(student_photo);
+        if(currentUser.getParseFile("photo")!=null){
+            if(currentUser.getParseFile("photo").getUrl()!=null){
+                String url = currentUser.getParseFile("photo").getUrl();
+                Picasso.with(context).load(url).fit().into(student_photo);
+            }else{
+                Picasso.with(context).load(R.drawable.account_no).fit().into(student_photo);
+            }
+        }else{
+            Picasso.with(context).load(R.drawable.account_no).fit().into(student_photo);
+        }
 
 
 

@@ -73,7 +73,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".activity.student.ResultActivity"
+            android:name=".activity.game.ResultActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -84,11 +84,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activity.student.ContentViewActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".activity.teacher.ResultActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>

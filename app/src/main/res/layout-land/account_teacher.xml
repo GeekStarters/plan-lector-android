@@ -88,13 +88,6 @@
                         android:text="Pais:"
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:text="Nivel:"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
                 </LinearLayout>
                 <!--LinerLayout  End -->
 
@@ -160,14 +153,6 @@
                         android:layout_marginTop="5dp"
                         android:textSize="25dp"/>
                     <!--TextView:Nivel (Level)-->
-                    <TextView
-                        android:id="@+id/teacher_level"
-                        android:text="teacher_nivel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:layout_marginTop="5dp"
-                        android:textSize="25dp"/>
 
                 </LinearLayout>
                 <!--LinerLayout  End -->

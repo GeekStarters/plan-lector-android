@@ -64,11 +64,11 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
 		mNav = new SimpleSideDrawer(this);
 		mNav.setLeftBehindContentView(R.layout.sidemenu_parent);
 		rank = (LinearLayout)mNav.findViewById(R.id.rank);
-		report = (LinearLayout)mNav.findViewById(R.id.progress);
+		report = (LinearLayout)mNav.findViewById(R.id.report);
         account = (LinearLayout)mNav.findViewById(R.id.account);
 		logout = (LinearLayout)mNav.findViewById(R.id.logout);
 		logout.setOnClickListener(this);
-        //report.setOnClickListener(this);
+        report.setOnClickListener(this);
 		rank.setOnClickListener(this);
         account.setOnClickListener(this);
 	}
@@ -131,7 +131,7 @@ public class MainActivityParent extends AppCompatActivity implements View.OnClic
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()){
-			case R.id.progress:
+			case R.id.report:
 				selectItem(2);
 				mNav.toggleLeftDrawer();
 				break;

@@ -5,11 +5,13 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -45,6 +47,10 @@ public class ReaderActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.activity_reader);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
         final String BOOK_NAME = getIntent().getStringExtra("name");
         Button b = (Button) findViewById(R.id.actividades);
         b.setOnClickListener(new View.OnClickListener() {

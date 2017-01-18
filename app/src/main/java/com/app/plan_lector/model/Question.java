@@ -1,30 +1,36 @@
 package com.app.plan_lector.model;
 public class Question {
-	private int ID;
+	private String ID;
 	private String QUESTION;
 	private String OPTA;
 	private String OPTB;
 	private String OPTC;
 	private String ANSWER;
+	private String OPTD;
+
 	public Question()
 	{
-		ID=0;
+		ID="";
 		QUESTION="";
 		OPTA="";
 		OPTB="";
 		OPTC="";
+		OPTD="";
 		ANSWER="";
 	}
-	public Question(String qUESTION, String oPTA, String oPTB, String oPTC,
+
+	public Question(String qUESTION, String oPTA, String oPTB, String oPTC,String oPTD,
 					String aNSWER) {
 		
 		QUESTION = qUESTION;
 		OPTA = oPTA;
 		OPTB = oPTB;
 		OPTC = oPTC;
+		OPTD= oPTD;
 		ANSWER = aNSWER;
 	}
-	public int getID()
+
+	public String getID()
 	{
 		return ID;
 	}
@@ -40,10 +46,13 @@ public class Question {
 	public String getOPTC() {
 		return OPTC;
 	}
+	public String getOPTD() {
+		return OPTD;
+	}
 	public String getANSWER() {
 		return ANSWER;
 	}
-	public void setID(int id)
+	public void setID(String id)
 	{
 		ID=id;
 	}
@@ -59,8 +68,11 @@ public class Question {
 	public void setOPTC(String oPTC) {
 		OPTC = oPTC;
 	}
+	public void setOPTD(String oPTD) {
+		OPTD = oPTD;
+	}
 	public void setANSWER(String aNSWER) {
 		ANSWER = aNSWER;
 	}
-	
+
 }
